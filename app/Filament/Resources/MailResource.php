@@ -2,10 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CustomerResource\Widgets\FooterCustomerOverview;
-use App\Filament\Resources\FooterResource\Pages;
-use App\Filament\Resources\FooterResource\RelationManagers;
-use App\Models\Footer;
+use App\Filament\Resources\MailResource\Pages;
+use App\Filament\Resources\MailResource\RelationManagers;
+use App\Models\Mail;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -14,35 +13,42 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class FooterResource extends Resource
+class MailResource extends Resource
 {
-    protected static ?string $model = Footer::class;
+    protected static ?string $model = Mail::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Quản lý trang tĩnh';
 
-    protected static ?int $navigationSort = 13;
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Group::make()
                     ->schema([
-                        Forms\Components\Section::make('Nội dung sản phẩm')
+                        Forms\Components\Section::make('Nội dung Mail')
                             ->schema([
-                                Forms\Components\TextInput::make('tittle')
-                                    ->label('Tiêu đề')
+                                Forms\Components\TextInput::make('topic')
+                                    ->label('Chủ đề')
+                                    ->required(),
+
+                                Forms\Components\TextInput::make('name')
+                                    ->label('Họ và tên')
+                                    ->required(),
+                                Forms\Components\TextInput::make('phone')
+                                    ->label('Số điện thoại')
+                                    ->required(),
+                                Forms\Components\TextInput::make('address')
+                                    ->label('Địa chỉ')
+                                    ->required(),
+
+                                Forms\Components\Textarea::make('content')
+                                    ->label('Nội dung')
                                     ->required()
-                                    ->maxLength(255)
                                     ->columnSpan('full'),
-                                Forms\Components\Textarea::make('describe')
-                                    ->label('Mô tả')
+                                Forms\Components\Textarea::make('note')
+                                    ->label('note')
                                     ->required()
-                                    ->maxLength(255)
                                     ->columnSpan('full'),
-                                Forms\Components\Toggle::make('display')
-                                    ->label('Hiển thị')
-                                    ->default(true),
                             ])
                             ->columns(2),
                     ])
@@ -54,9 +60,7 @@ class FooterResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                //
-            ])
+            ->columns([])
             ->filters([
                 //
             ])
@@ -76,18 +80,13 @@ class FooterResource extends Resource
             //
         ];
     }
-    public static function getWidgets(): array
-    {
-        return[
-            FooterCustomerOverview::class,
-        ];
-    }
+
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListFooters::route('/'),
-            'create' => Pages\CreateFooter::route('/create'),
-            'edit' => Pages\EditFooter::route('/{record}/edit'),
+            'index' => Pages\ListMails::route('/'),
+            'create' => Pages\CreateMail::route('/create'),
+            'edit' => Pages\EditMail::route('/{record}/edit'),
         ];
     }
 }

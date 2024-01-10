@@ -45,7 +45,7 @@ class ProductResource extends Resource
                                     ->required(),
 
 
-                                Forms\Components\Textarea::make('describe')
+                                Forms\Components\RichEditor::make('describe')
                                     ->label('Mô tả')
                                     ->required()
                                     ->columnSpan('full'),
@@ -110,16 +110,15 @@ class ProductResource extends Resource
                                 Forms\Components\Select::make('category_level2_id')
                                     ->label('Danh mục cấp 2')
                                     ->relationship(name: 'category_level2', titleAttribute: "tittle")
-                                    // ->relationship('major', 'name')
                                     ->required(),
                                 Forms\Components\Select::make('category_level3_id')
                                     ->label('Danh mục cấp 3')
                                     ->relationship(name: 'category_level3', titleAttribute: "tittle")
-                                    // ->relationship('campus', 'name')
                                     ->required(),
                                 Forms\Components\Select::make('tag_product_id')
                                     ->label('Tag sản phẩm')
                                     ->relationship(name: 'tag_product', titleAttribute: "tittle")
+
                                     // ->relationship('campus', 'name')
                                     ->required(),
                             ])->columns(2),

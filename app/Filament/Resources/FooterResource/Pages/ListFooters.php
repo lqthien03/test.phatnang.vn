@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\FooterResource\Pages;
 
+use App\Filament\Resources\CustomerResource\Widgets\FooterCustomerOverview;
 use App\Filament\Resources\FooterResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
@@ -14,6 +15,12 @@ class ListFooters extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+        ];
+    }
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            FooterCustomerOverview::class,
         ];
     }
 }

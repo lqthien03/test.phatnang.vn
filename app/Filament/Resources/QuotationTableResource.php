@@ -113,13 +113,19 @@ class QuotationTableResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('id')
+                    ->label('Số thứ tự'),
+                Tables\Columns\TextColumn::make('tittle')
+                    ->label('Tiêu đề'),
+                Tables\Columns\ToggleColumn::make('display')
+                    ->label('Hiển thị')
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

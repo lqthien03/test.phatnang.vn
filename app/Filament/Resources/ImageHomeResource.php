@@ -21,6 +21,7 @@ class ImageHomeResource extends Resource
     protected static ?string $navigationGroup = 'Quản lý hình ảnh - video';
 
     protected static ?int $navigationSort = 14;
+    protected static bool $navigation = false;
     public static function form(Form $form): Form
     {
         return $form

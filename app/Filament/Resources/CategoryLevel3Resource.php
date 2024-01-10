@@ -24,65 +24,6 @@ class CategoryLevel3Resource extends Resource
     protected static ?string $navigationGroup = 'Quản lý sản phẩm';
     protected static ?int $navigationSort = 3;
 
-    // public static function form(Form $form): Form
-    // {
-    //     return $form
-    //         ->schema([
-    //             Forms\Components\Section::make('Nội dung sản phẩm')
-    //                 ->schema([
-    //                     Forms\Components\Grid::make()
-    //                         ->schema([
-    //                             Forms\Components\TextInput::make('tittle')
-    //                                 ->required()
-    //                                 ->maxValue(50)
-    //                                 ->live(onBlur: true),
-
-    //                         ]),
-    //                     Forms\Components\Select::make('category_level1_id')
-    //                         ->label('Danh mục cấp 1')
-    //                         ->relationship(name: 'category_level1', titleAttribute: 'tittle')
-    //                         ->required(),
-    //                     Forms\Components\Select::make('category_level2_id')
-    //                         ->label('Danh mục cấp 2')
-    //                         ->relationship(name: 'category_level2', titleAttribute: 'tittle')
-    //                         ->required(),
-    //                     Forms\Components\RichEditor::make('describe')
-    //                         ->required()
-    //                         ->maxLength(255),
-
-    //                     Forms\Components\Toggle::make('display')
-    //                         ->default(true),
-
-    //                 ]),
-
-
-    //             Forms\Components\Section::make('Hình ảnh')
-    //                 ->schema([
-    //                     Forms\Components\FileUpload::make('image'),
-
-    //                 ]),
-
-    //             Forms\Components\Section::make('Nội dung SEO')
-    //                 ->schema([
-    //                     Forms\Components\Grid::make()
-    //                         ->schema([
-    //                             Forms\Components\TextInput::make('seo_tittle')
-    //                                 ->required()
-    //                                 ->maxValue(50)
-    //                                 ->live(onBlur: true),
-    //                             Forms\Components\TextInput::make('seo_keyword')
-    //                                 ->required()
-    //                                 ->maxValue(50)
-    //                                 ->live(onBlur: true),
-    //                         ]),
-    //                     Forms\Components\RichEditor::make('seo_description')
-    //                         ->required()
-    //                         ->maxLength(255),
-    //                 ])
-
-    //         ])
-    //         ->columns(3);
-    // }
     public static function form(Form $form): Form
     {
         return $form

@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('topic');
             $table->string('content');
             $table->string('note');
+            $table->timestamps();
         });
-    }
+    }   
 
     /**
      * Reverse the migrations.

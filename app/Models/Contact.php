@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Contact extends Model
 {
     use HasFactory;
-    public $table = "support_customers";
+    public $table = "contacts";
     protected $fillable = [
-        'content',
+        'describe',
         'image',
         'display',
         'seo_id',

@@ -25,11 +25,11 @@ class CategoryLevel1Resource extends Resource
     protected static ?string $modelLabel = 'Danh mục cấp 1';
     protected static ?string $navigationGroup = 'Quản lý sản phẩm';
     protected static ?int $navigationSort = 1;
-    
+
     public static function form(Form $form): Form
     {
 
-        // dd(Category_level1::with('seo')->get());
+        // dd(Category_level1::all());
         return $form
             ->schema([
                 Forms\Components\Group::make()
@@ -103,20 +103,6 @@ class CategoryLevel1Resource extends Resource
                     ->label('Hiển thị'),
                 Tables\Columns\ToggleColumn::make('outstand')
                     ->label('Nổi bật'),
-
-
-                // Tables\Columns\TextColumn::make('image')
-                //     ->counts('listings')
-                //     ->label(__('admin/main.listings_count')),
-
-                // Tables\Columns\IconColumn::make('is_visible')
-                //     ->label(__('statuses.is_visible'))
-                //     ->boolean(),
-
-                // Tables\Columns\TextColumn::make('updated_at')
-                //     ->label(__('datetime.updated_at'))
-                //     ->datetime('H:i d/m/Y')
-                //     ->sortable()
             ])
             ->filters([
                 //

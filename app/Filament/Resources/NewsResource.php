@@ -34,8 +34,6 @@ class NewsResource extends Resource
                                     ->required()
                                     ->maxLength(255),
 
-
-
                                 Forms\Components\Textarea::make('describe')
                                     ->label('Mô tả')
                                     ->required()

@@ -3,8 +3,9 @@
 namespace App\Filament\Resources\CustomerResource\Widgets;
 
 use Filament\Widgets\ChartWidget;
+use Filament\Widgets\StatsOverviewWidget\Stat;
 
-class CustomerOverview extends ChartWidget
+class FooterCustomerOverview extends ChartWidget
 {
     protected static ?string $heading = 'Chart';
 
@@ -15,6 +16,8 @@ class CustomerOverview extends ChartWidget
                 [
                     'label' => 'Blog posts created',
                     'data' => [0, 10, 5, 2, 21, 32, 45, 74, 65, 45, 77, 89],
+                    'backgroundColor' => '#36A2EB',
+                    'borderColor' => '#9BD0F5',
                 ],
             ],
             'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -23,6 +26,15 @@ class CustomerOverview extends ChartWidget
 
     protected function getType(): string
     {
-        return 'doughnut';
+        return 'line';
+    }
+
+    protected function getCard(): array
+    {
+        return [
+            Stat::make('Unique views', '192.1k'),
+            Stat::make('Bounce rate', '21%'),
+            Stat::make('Average time on page', '3:12'),
+        ];
     }
 }
